@@ -1,5 +1,8 @@
 {
   "name": "TrueNorth Medicare & Life Insurance",
-  "description": "A professional, trustworthy, and easy-to-navigate website for a Life Insurance and Medicare Broker in Texas, designed specifically for seniors.",
-  "requestFramePermissions": []
+  "description": "Licensed insurance broker in San Antonio helping Texans with Medicare, Life Insurance, ACA Marketplace, and Dental & Vision coverage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
