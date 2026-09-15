@@ -111,7 +111,7 @@ const AdminPage: React.FC = () => {
             <div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Broker Profile Photo</h3>
               <p className="text-sm text-gray-600 mb-4">
-                Upload your exact photo (such as <code>IMG_6289.jpeg</code>) to display on the About page.
+                Upload your exact photo (such as <code>IMG_6289.jpeg</code>) to display on the About Me and Reviews pages.
               </p>
               
               <input 

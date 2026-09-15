@@ -1,12 +1,19 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Star, MessageSquareQuote } from 'lucide-react';
 import { useAdminData } from '../hooks/useAdminData';
 import type { Testimonial } from '../types';
 import Button from '../components/Button';
 import DualBookingButtons from '../components/DualBookingButtons';
+import saanikaProfileImage from '../src/assets/images/saanika_about_portrait_1789413419482.jpg';
 
-const saanikaProfileImage = "https://picsum.photos/seed/saanika/400/600";
+const candidateImages = [
+  '/IMG_6289.jpeg',
+  '/IMG_6289.jpg',
+  '/saanika.jpeg',
+  '/saanika.jpg',
+  saanikaProfileImage,
+];
 
 const ReviewCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
   <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col h-full">
@@ -25,6 +32,22 @@ const ReviewCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => 
 
 const ReviewsPage: React.FC = () => {
   const { siteData } = useAdminData();
+  const [candidateIndex, setCandidateIndex] = useState(0);
+  const [customPhoto] = useState<string | null>(() => {
+    try {
+      return localStorage.getItem('saanika_custom_photo') || null;
+    } catch {
+      return null;
+    }
+  });
+
+  const handleImageError = () => {
+    if (!customPhoto && candidateIndex < candidateImages.length - 1) {
+      setCandidateIndex(prev => prev + 1);
+    }
+  };
+
+  const currentPhotoSrc = customPhoto || candidateImages[candidateIndex];
 
   return (
     <div className="bg-tn-gray">
@@ -43,7 +66,14 @@ const ReviewsPage: React.FC = () => {
       <section className="py-20 bg-white border-t border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-                <img src={saanikaProfileImage} alt="Saanika, Broker" className="rounded-full w-40 h-40 object-cover shadow-lg border-4 border-white" />
+                <img 
+                  id="saanika-note-image"
+                  src={currentPhotoSrc} 
+                  alt="Saanika, Broker" 
+                  className="rounded-full w-40 h-40 object-cover shadow-lg border-4 border-white"
+                  onError={handleImageError}
+                  referrerPolicy="no-referrer" 
+                />
                 <div>
                     <h2 className="text-3xl font-bold text-tn-primary mb-2">A Note From Saanika</h2>
                     <p className="text-lg text-gray-700 leading-relaxed italic">
