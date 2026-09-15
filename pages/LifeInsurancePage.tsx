@@ -11,109 +11,127 @@ const LifeInsurancePage: React.FC = () => {
 
   const insuranceTypes = [
     { 
-      icon: <Infinity size={40} className="text-tn-accent"/>,
+      icon: <Infinity size={22} className="text-tn-accent"/>,
       title: "Whole Life", 
-      description: "Permanent coverage with guaranteed premiums, death benefit, and cash value growth. A cornerstone of financial planning." 
+      description: "Permanent coverage with guaranteed level premiums, a locked-in death benefit, and stable cash value growth." 
     },
     { 
-      icon: <Shield size={40} className="text-tn-accent"/>,
+      icon: <Shield size={22} className="text-tn-accent"/>,
       title: "Term Life", 
-      description: "Affordable coverage for a specific period (e.g., 10, 20, or 30 years). Ideal for covering mortgages or income replacement." 
+      description: "Affordable coverage for a specific period (e.g., 10, 20, or 30 years). Ideal for covering mortgages or family income." 
     },
     { 
-      icon: <TrendingUp size={40} className="text-tn-accent"/>,
+      icon: <TrendingUp size={22} className="text-tn-accent"/>,
       title: "Universal Life", 
-      description: "A flexible permanent policy that allows you to adjust your premiums and death benefit as your needs change." 
+      description: "A flexible permanent policy that allows you to adjust premiums and death benefits as your financial goals change." 
     },
     { 
-      icon: <Landmark size={40} className="text-tn-accent"/>,
+      icon: <Landmark size={22} className="text-tn-accent"/>,
       title: "Burial / Final Expense", 
-      description: "A small whole life policy designed to cover funeral costs, medical bills, and other end-of-life expenses." 
+      description: "A specialized, simplified whole life policy designed to lift funeral and end-of-life expenses off your family." 
     },
     { 
-      icon: <ShieldCheck size={40} className="text-tn-accent"/>,
+      icon: <ShieldCheck size={22} className="text-tn-accent"/>,
       title: "Accidental Life", 
-      description: "Provides a benefit if death occurs as the result of a covered accident. Often used to supplement other coverage." 
+      description: "Provides financial benefits if injury or death occurs as the result of a covered accident." 
     },
     { 
-      icon: <Baby size={40} className="text-tn-accent"/>,
+      icon: <Baby size={22} className="text-tn-accent"/>,
       title: "Children’s Whole Life", 
-      description: "Secure lifelong insurance protection for your children or grandchildren at a low rate that never increases." 
+      description: "Secure lifelong protection and insurability for children or grandchildren at rates that never increase." 
     },
   ];
 
   return (
     <div className="bg-white">
       {/* Page Header */}
-      <section className="bg-tn-primary text-white py-16 text-center">
-        <div className="container mx-auto px-4">
-          <HeartHandshake className="mx-auto text-tn-accent mb-4" size={64}/>
-          <h1 className="text-5xl font-extrabold">Protecting What Matters Most</h1>
-          <p className="text-xl mt-4 max-w-3xl mx-auto">Secure your family's future and cover final expenses with the right life insurance plan.</p>
+      <section className="bg-tn-primary text-white py-14 text-center">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="w-12 h-12 rounded-full bg-white/10 text-red-300 flex items-center justify-center mx-auto mb-3">
+            <HeartHandshake size={24}/>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-semibold">Protecting What Matters Most</h1>
+          <p className="text-base sm:text-lg text-slate-200 mt-2 max-w-2xl mx-auto leading-relaxed">
+            Secure your family's future and lift final expense burdens with straightforward life insurance guidance.
+          </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           
           {/* Introduction */}
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-tn-primary mb-4">What is Life Insurance?</h2>
-            <p className="text-xl leading-relaxed text-gray-700">
-              Life insurance is a contract between you and an insurer. In exchange for premium payments, the insurer pays a lump-sum, tax-free death benefit to your designated beneficiaries upon your death. It's a fundamental tool for protecting your loved ones from financial hardship and ensuring your legacy lives on.
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-tn-accent font-medium tracking-wider text-xs uppercase">
+              Financial Foundation
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-tn-primary mt-1 mb-3">Understanding Life Insurance</h2>
+            <p className="text-base leading-relaxed text-gray-600 font-normal">
+              Life insurance is a mutual contract designed to safeguard those who depend on you. In exchange for predictable premium payments, your insurer provides a tax-free benefit to your beneficiaries. We assist you in matching coverage to your real family goals without paying for what you do not need.
             </p>
           </div>
 
           {/* Types of Life Insurance Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
             {insuranceTypes.map((type, index) => (
-              <div key={index} className="bg-tn-gray p-8 rounded-lg shadow-lg flex flex-col">
-                <div className="mb-4">{type.icon}</div>
-                <h3 className="text-2xl font-bold text-tn-primary mb-2">{type.title}</h3>
-                <p className="text-lg text-gray-700 flex-grow">{type.description}</p>
+              <div key={index} className="bg-slate-50 p-6 rounded-lg border border-slate-100 flex flex-col">
+                <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center mb-3 border border-red-100">
+                  {type.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-tn-primary mb-1.5">{type.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed flex-grow font-normal">{type.description}</p>
               </div>
             ))}
           </div>
           
           {/* Highlighted Whole Life Section */}
-          <div className="bg-blue-50 border-l-4 border-tn-accent p-8 rounded-lg shadow-lg max-w-5xl mx-auto mb-16">
-            <h3 className="text-3xl font-extrabold text-tn-primary mb-4">Why Whole Life Insurance Is a Powerful Long-Term Solution</h3>
-            <p className="text-lg text-gray-800 mb-6">
-              Whole life insurance is more than just a death benefit; it's a versatile financial asset. It provides permanent protection that never expires, as long as premiums are paid.
+          <div className="bg-slate-50 border border-blue-100 p-6 sm:p-8 rounded-xl max-w-4xl mx-auto mb-14">
+            <span className="text-xs uppercase tracking-wider text-tn-accent font-medium">Permanent Protection</span>
+            <h3 className="text-xl sm:text-2xl font-semibold text-tn-primary mt-1 mb-3">
+              Why Whole Life Insurance Is a Steady Long-Term Solution
+            </h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-6 leading-relaxed">
+              Whole life insurance is designed for lifelong peace of mind. As long as premiums are maintained, the policy never expires and continues to accumulate dependable value over time.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700">
                 <div className="flex items-start">
-                    <Infinity className="text-tn-primary mr-3 mt-1 flex-shrink-0" />
-                    <span><strong>Lifetime Coverage:</strong> Your policy remains in force for your entire life.</span>
+                    <Infinity className="text-tn-primary mr-2.5 mt-0.5 flex-shrink-0" size={18} />
+                    <span><strong className="text-tn-primary">Lifetime Coverage:</strong> Your policy stays in force for your full lifetime.</span>
                 </div>
                 <div className="flex items-start">
-                    <TrendingUp className="text-tn-primary mr-3 mt-1 flex-shrink-0" />
-                    <span><strong>Cash Value Growth:</strong> Builds a tax-deferred cash value you can borrow against.</span>
+                    <TrendingUp className="text-tn-primary mr-2.5 mt-0.5 flex-shrink-0" size={18} />
+                    <span><strong className="text-tn-primary">Cash Value Growth:</strong> Builds a tax-deferred cash reserve accessible when needed.</span>
                 </div>
                 <div className="flex items-start">
-                    <ShieldCheck className="text-tn-primary mr-3 mt-1 flex-shrink-0" />
-                    <span><strong>Fixed Premiums:</strong> Your payments are guaranteed to never increase.</span>
+                    <ShieldCheck className="text-tn-primary mr-2.5 mt-0.5 flex-shrink-0" size={18} />
+                    <span><strong className="text-tn-primary">Fixed Premiums:</strong> Your monthly rate is locked and guaranteed to never rise.</span>
                 </div>
                 <div className="flex items-start">
-                    <HeartHandshake className="text-tn-primary mr-3 mt-1 flex-shrink-0" />
-                    <span><strong>Legacy Planning:</strong> Ensures your loved ones receive a tax-free inheritance.</span>
+                    <HeartHandshake className="text-tn-primary mr-2.5 mt-0.5 flex-shrink-0" size={18} />
+                    <span><strong className="text-tn-primary">Family Legacy:</strong> Delivers a tax-free financial benefit directly to your loved ones.</span>
                 </div>
             </div>
           </div>
 
           {/* Final CTA */}
-          <div className="text-center mt-12">
-            <h2 className="text-4xl font-bold text-tn-primary mb-4">Ready to Find Your Plan?</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-              Every family is unique. Let's find a life insurance solution that fits your specific needs and budget.
+          <div className="text-center mt-12 max-w-2xl mx-auto bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-xs">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-tn-primary mb-2">Ready to Discuss Your Coverage?</h2>
+            <p className="text-base text-gray-600 mb-6 leading-relaxed">
+              Every family’s circumstances are different. Let's compare options from top-rated carriers to find comfortable protection.
             </p>
-            <Button as="a" href="#/contact">Request a Free Quote</Button>
+            <a 
+              id="btn-life-page-cta"
+              href="#/book-general" 
+              className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg font-semibold text-base bg-tn-primary text-white hover:bg-blue-900 shadow-md transition-all text-center"
+            >
+              Book a General Appointment
+            </a>
           </div>
 
         </div>
       </section>
-      <CarrierLogos carriers={lifeInsuranceCarriers} title="We Partner With Top-Rated Life Insurance Carriers" />
+      <CarrierLogos showLifeOnly={true} title="Contracted Life Insurance Carriers" />
     </div>
   );
 };

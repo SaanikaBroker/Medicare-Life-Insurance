@@ -4,15 +4,15 @@ import type { SiteData } from '../types';
 
 const initialData: SiteData = {
   contact: {
-    phone: '210-816-2977',
-    email: 'saanika@truenorthmedicare.com',
-    address: '1234 Main St, San Antonio, TX 78205',
-    hours: 'Mon - Fri, 9am - 5pm'
+    phone: '210-985-0877',
+    email: 'sprabhu.csb@gmail.com',
+    address: '',
+    hours: 'Mon - Fri: 10:00 a.m. to 6:00 p.m.'
   },
   social: {
-    facebook: '#',
+    facebook: 'https://www.facebook.com/share/1C4agXRQ1Q/?mibextid=wwXIfr',
     linkedin: '#',
-    instagram: '#'
+    instagram: 'https://www.instagram.com/saanika_insuranceadvisor?stkn=ZmtrZjRxZ2c4azNh'
   },
   testimonials: [
     { id: 1, name: 'John D.', location: 'San Antonio, TX', rating: 5, text: 'Saanika was incredibly patient and knowledgeable. She made a confusing process so simple. I highly recommend TrueNorth!' },

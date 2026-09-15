@@ -1,11 +1,57 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useAdminData } from '../hooks/useAdminData';
 import type { Testimonial } from '../types';
+import { Upload, Camera, Check, RotateCcw } from 'lucide-react';
 
 const AdminPage: React.FC = () => {
   const { siteData, setSiteData } = useAdminData();
   const [activeTab, setActiveTab] = useState('general');
+  const [customPhoto, setCustomPhoto] = useState<string | null>(() => {
+    try {
+      return localStorage.getItem('saanika_custom_photo') || null;
+    } catch {
+      return null;
+    }
+  });
+  const [photoMessage, setPhotoMessage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        alert('Please select an image file (e.g. JPEG, PNG).');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const dataUrl = event.target?.result as string;
+        if (dataUrl) {
+          setCustomPhoto(dataUrl);
+          try {
+            localStorage.setItem('saanika_custom_photo', dataUrl);
+          } catch (err) {
+            console.warn(err);
+          }
+          setPhotoMessage('Profile photo updated successfully!');
+          setTimeout(() => setPhotoMessage(null), 3000);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleResetPhoto = () => {
+    setCustomPhoto(null);
+    try {
+      localStorage.removeItem('saanika_custom_photo');
+    } catch (err) {
+      console.warn(err);
+    }
+    setPhotoMessage('Photo reset to default.');
+    setTimeout(() => setPhotoMessage(null), 3000);
+  };
 
   const handleGeneralChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -61,16 +107,77 @@ const AdminPage: React.FC = () => {
     switch(activeTab) {
       case 'general':
         return (
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-gray-800">Contact & Social</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <InputField label="Phone Number" name="contact.phone" value={siteData.contact.phone} />
-                <InputField label="Email Address" name="contact.email" value={siteData.contact.email} />
-                <InputField label="Address" name="contact.address" value={siteData.contact.address} />
-                <InputField label="Business Hours" name="contact.hours" value={siteData.contact.hours} />
-                <InputField label="Facebook URL" name="social.facebook" value={siteData.social.facebook} />
-                <InputField label="LinkedIn URL" name="social.linkedin" value={siteData.social.linkedin} />
-                <InputField label="Instagram URL" name="social.instagram" value={siteData.social.instagram} />
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Broker Profile Photo</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Upload your exact photo (such as <code>IMG_6289.jpeg</code>) to display on the About page.
+              </p>
+              
+              <input 
+                id="admin-photo-input"
+                ref={fileInputRef}
+                type="file" 
+                accept="image/*" 
+                onChange={handlePhotoUpload} 
+                className="hidden" 
+              />
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 bg-slate-50 border border-slate-200 rounded-lg max-w-xl">
+                <div className="w-24 h-24 rounded-lg bg-white border border-slate-200 overflow-hidden flex items-center justify-center flex-shrink-0">
+                  {customPhoto ? (
+                    <img src={customPhoto} alt="Broker preview" className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="text-xs text-slate-400 text-center p-2">Default Photo</div>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      id="admin-upload-photo-btn"
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-md shadow-xs flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <Upload size={14} />
+                      <span>{customPhoto ? 'Change Photo' : 'Upload Photo'}</span>
+                    </button>
+
+                    {customPhoto && (
+                      <button
+                        id="admin-reset-photo-btn"
+                        type="button"
+                        onClick={handleResetPhoto}
+                        className="px-3.5 py-2 bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-medium rounded-md flex items-center gap-1.5 cursor-pointer"
+                      >
+                        <RotateCcw size={14} />
+                        <span>Reset to Default</span>
+                      </button>
+                    )}
+                  </div>
+
+                  <p className="text-xs text-slate-500">Supported formats: JPG, JPEG, PNG, WebP</p>
+
+                  {photoMessage && (
+                    <p className="text-xs text-emerald-600 font-medium flex items-center gap-1">
+                      <Check size={13} /> {photoMessage}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">Contact & Social</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <InputField label="Phone Number" name="contact.phone" value={siteData.contact.phone} />
+                  <InputField label="Email Address" name="contact.email" value={siteData.contact.email} />
+                  <InputField label="Business Hours" name="contact.hours" value={siteData.contact.hours} />
+                  <InputField label="Facebook URL" name="social.facebook" value={siteData.social.facebook} />
+                  <InputField label="LinkedIn URL" name="social.linkedin" value={siteData.social.linkedin} />
+                  <InputField label="Instagram URL" name="social.instagram" value={siteData.social.instagram} />
+              </div>
             </div>
           </div>
         );

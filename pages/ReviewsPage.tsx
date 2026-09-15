@@ -4,6 +4,7 @@ import { Star, MessageSquareQuote } from 'lucide-react';
 import { useAdminData } from '../hooks/useAdminData';
 import type { Testimonial } from '../types';
 import Button from '../components/Button';
+import DualBookingButtons from '../components/DualBookingButtons';
 
 const saanikaProfileImage = "https://picsum.photos/seed/saanika/400/600";
 
@@ -67,11 +68,13 @@ const ReviewsPage: React.FC = () => {
       
       {/* Final CTA Strip */}
       <section className="py-16 bg-tn-primary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Experience 5-Star Service?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Join our growing family of satisfied clients. Let us provide the clear, compassionate guidance you deserve.</p>
-          <div className="flex justify-center">
-            <Button as="a" href="#/book-appointment" variant="primary">Schedule Your Free Consultation</Button>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Experience 5-Star Service?</h2>
+          <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
+            Join our growing family of satisfied clients. Let us provide the clear, compassionate guidance you deserve.
+          </p>
+          <div className="w-full max-w-2xl mx-auto">
+            <DualBookingButtons variant="dark" />
           </div>
         </div>
       </section>

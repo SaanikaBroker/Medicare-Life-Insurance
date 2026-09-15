@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, CalendarCheck, ChevronDown } from 'lucide-react';
 import { useAdminData } from '../hooks/useAdminData';
@@ -13,32 +13,102 @@ interface NavItem {
 
 const Dropdown: React.FC<{ item: NavItem }> = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   const isParentActive = item.items?.some(subItem => location.pathname === subItem.path);
 
+  // Close dropdown on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 200);
+  };
+
+  const handleToggleClick = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsOpen(prev => !prev);
+  };
+
   return (
     <div 
-      className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      ref={dropdownRef}
+      className="relative py-2"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <button className={`flex items-center text-lg font-semibold text-tn-text hover:text-tn-accent transition-colors ${isParentActive ? 'text-tn-accent' : ''}`}>
+      <button 
+        type="button"
+        onClick={handleToggleClick}
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        className={`flex items-center text-lg font-semibold text-tn-text hover:text-tn-accent transition-colors ${isParentActive ? 'text-tn-accent' : ''}`}
+      >
         {item.name}
         <ChevronDown size={20} className={`ml-1 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
+
       {isOpen && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-10">
-          {item.items?.map(subLink => (
-            <NavLink
-              key={subLink.name}
-              to={subLink.path}
-              className="block px-4 py-2 text-lg text-tn-text hover:bg-tn-gray hover:text-tn-accent"
-              style={({ isActive }) => (isActive ? { color: '#D92E17', fontWeight: '700' } : {})}
-            >
-              {subLink.name}
-            </NavLink>
-          ))}
+        <div 
+          className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 z-50"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {/* Invisible hover bridge connecting button to dropdown without gap */}
+          <div className="absolute -top-2 left-0 right-0 h-4 bg-transparent"></div>
+
+          <div className="bg-white rounded-lg shadow-xl py-2">
+            {item.items?.map(subLink => (
+              <NavLink
+                key={subLink.name}
+                to={subLink.path}
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-2 text-lg text-tn-text hover:bg-tn-gray hover:text-tn-accent transition-colors"
+                style={({ isActive }) => (isActive ? { color: '#D92E17', fontWeight: '700' } : {})}
+              >
+                {subLink.name}
+              </NavLink>
+            ))}
+          </div>
         </div>
       )}
     </div>
@@ -58,6 +128,8 @@ const Header: React.FC = () => {
       items: [
         { name: 'Medicare', path: '/medicare' },
         { name: 'Life Insurance', path: '/life-insurance' },
+        { name: 'ACA Marketplace', path: '/aca-marketplace' },
+        { name: 'Dental & Vision', path: '/dental-vision' },
       ],
     },
     { name: 'Reviews', path: '/reviews' },

@@ -1,95 +1,148 @@
-
 import React from 'react';
-import Button from '../components/Button';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Shield, HeartHandshake, Calendar, CheckCircle } from 'lucide-react';
 import { useAdminData } from '../hooks/useAdminData';
 import CarrierLogos from '../components/CarrierLogos';
-import { allCarriers } from '../data/carrierData';
 
 const ContactPage: React.FC = () => {
   const { siteData } = useAdminData();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Here you would handle form submission, e.g., send data to an API
-    alert('Thank you for your message! We will get back to you shortly.');
-    (e.target as HTMLFormElement).reset();
-  };
+  const recipientEmail = siteData.contact.email || 'sprabhu.csb@gmail.com';
 
   return (
     <div className="bg-white">
       {/* Page Header */}
       <section className="bg-tn-primary text-white py-16 text-center">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-extrabold">Get In Touch</h1>
-          <p className="text-xl mt-4 max-w-3xl mx-auto">We're here to answer your questions. Let’s talk about your options today.</p>
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
+            Ready to Talk?
+          </h1>
+          <p className="text-lg sm:text-xl text-slate-200 mt-2 max-w-2xl mx-auto">
+            Choose the type of appointment that works best for you.
+          </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="py-16 sm:py-20 bg-slate-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Contact Form */}
-            <div className="bg-tn-gray p-8 rounded-lg shadow-lg">
-              <h2 className="text-4xl font-bold text-tn-primary mb-6">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-lg font-medium text-gray-700">Name</label>
-                  <input type="text" id="name" name="name" required className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm text-lg focus:ring-tn-primary focus:border-tn-primary" />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-lg font-medium text-gray-700">Phone</label>
-                  <input type="tel" id="phone" name="phone" required className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm text-lg focus:ring-tn-primary focus:border-tn-primary" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email</label>
-                  <input type="email" id="email" name="email" required className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm text-lg focus:ring-tn-primary focus:border-tn-primary" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-lg font-medium text-gray-700">Message</label>
-                  <textarea id="message" name="message" rows={5} required className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm text-lg focus:ring-tn-primary focus:border-tn-primary"></textarea>
-                </div>
-                <div>
-                  <Button type="submit" variant="primary" className="w-full">Send Message</Button>
-                </div>
-              </form>
-            </div>
+            {/* Main Appointment Options Section */}
+            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <span className="text-tn-accent font-semibold tracking-wider text-xs uppercase">
+                Schedule a Consultation
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-tn-primary mt-1 mb-3">
+                Book Your 1-on-1 Appointment
+              </h2>
+              <p className="text-base text-gray-600 mb-8 leading-relaxed">
+                Consultations are 100% free with zero sales pressure or obligation. Select an option below to pick a time on the calendar:
+              </p>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-4xl font-bold text-tn-primary mb-6">Contact Information</h2>
-                <div className="space-y-6 text-xl text-gray-800">
-                  <div className="flex items-center">
-                    <Phone className="text-tn-accent mr-4" size={32} />
-                    <a href={`tel:${siteData.contact.phone}`} className="hover:text-tn-accent font-bold text-3xl">{siteData.contact.phone}</a>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="text-tn-accent mr-4" size={32} />
-                    <a href={`mailto:${siteData.contact.email}`} className="hover:text-tn-accent">{siteData.contact.email}</a>
-                  </div>
-                   <div className="flex items-start">
-                    <MapPin className="text-tn-accent mr-4 mt-1" size={32} />
+              <div className="space-y-4">
+                {/* Option 1: Medicare Review */}
+                <div className="p-5 rounded-xl border-2 border-tn-accent/30 bg-red-50/40 hover:border-tn-accent transition-all">
+                  <div className="flex items-start gap-3.5 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-tn-accent text-white flex items-center justify-center flex-shrink-0">
+                      <Shield size={22} />
+                    </div>
                     <div>
-                        <span className="font-semibold">Office Location:</span> {siteData.contact.address}<br />
-                        <span className="font-semibold">Service Area:</span> All of Texas
+                      <h3 className="text-lg font-bold text-tn-primary">
+                        Medicare 101 or Annual Review
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
+                        Medicare Advantage, Medicare Supplement (Medigap), Part D prescription review, and Turning 65 guidance.
+                      </p>
                     </div>
                   </div>
-                   <div className="flex items-center">
-                    <Clock className="text-tn-accent mr-4" size={32} />
-                     <div>
-                        <span className="font-semibold">Business Hours:</span> {siteData.contact.hours}
+                  <a
+                    id="contact-page-btn-medicare"
+                    href="#/book-medicare"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-sm sm:text-base bg-tn-accent text-white hover:bg-red-800 shadow-sm transition-all"
+                  >
+                    <Calendar size={18} />
+                    <span>Schedule Your Medicare 101 or Annual Review</span>
+                  </a>
+                </div>
+
+                {/* Option 2: General Appointment */}
+                <div className="p-5 rounded-xl border border-slate-300 bg-white hover:border-tn-primary transition-all">
+                  <div className="flex items-start gap-3.5 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-tn-primary text-white flex items-center justify-center flex-shrink-0">
+                      <HeartHandshake size={22} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-tn-primary">
+                        General Consultation
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
+                        Final Expense / Burial protection, Term & Whole Life, ACA Marketplace individual & family plans, or Dental & Vision.
+                      </p>
                     </div>
                   </div>
+                  <a
+                    id="contact-page-btn-general"
+                    href="#/book-general"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-sm sm:text-base bg-tn-primary text-white hover:bg-blue-900 shadow-sm transition-all"
+                  >
+                    <Calendar size={18} />
+                    <span>Book a General Appointment</span>
+                  </a>
                 </div>
               </div>
-              
-              {/* Map Placeholder */}
-              <div>
-                <div className="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <p className="text-gray-500">Google Maps Placeholder</p>
+
+              <div className="mt-6 pt-5 border-t border-slate-200 flex items-center gap-2 text-xs sm:text-sm text-gray-500">
+                <CheckCircle size={16} className="text-emerald-600 flex-shrink-0" />
+                <span>No paperwork or contact forms required before selecting your date and time.</span>
+              </div>
+            </div>
+
+            {/* Direct Contact Information (Secondary) */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 className="text-xl font-bold text-tn-primary mb-5">
+                  Direct Contact Details
+                </h3>
+
+                <div className="space-y-5 text-gray-800">
+                  <div className="flex items-start">
+                    <Phone className="text-tn-accent mr-3.5 mt-1 flex-shrink-0" size={26} />
+                    <div>
+                      <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider block">Call or Text</span>
+                      <a href={`tel:${siteData.contact.phone}`} className="hover:text-tn-accent font-bold text-2xl text-tn-primary block mt-0.5">
+                        {siteData.contact.phone}
+                      </a>
+                      <span className="text-xs text-gray-500">Click to dial immediately</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <Mail className="text-tn-accent mr-3.5 mt-1 flex-shrink-0" size={26} />
+                    <div>
+                      <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider block">Email Directly</span>
+                      <a href={`mailto:${recipientEmail}`} className="hover:text-tn-accent font-medium text-base text-tn-primary break-all block mt-0.5">
+                        {recipientEmail}
+                      </a>
+                      <span className="text-xs text-gray-500">Fast response within 24 business hours</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <MapPin className="text-tn-accent mr-3.5 mt-1 flex-shrink-0" size={26} />
+                    <div>
+                      <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider block">Service Area</span>
+                      <span className="font-semibold text-tn-primary text-base">All of Texas</span>
+                      <p className="text-xs text-gray-500 mt-0.5">Virtual consultations, phone appointments, and statewide coverage assistance.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <Clock className="text-tn-accent mr-3.5 mt-1 flex-shrink-0" size={26} />
+                    <div>
+                      <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider block">Business Hours</span>
+                      <span className="font-medium text-tn-primary text-sm">{siteData.contact.hours || '10:00 a.m. to 6:00 p.m.'}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -97,7 +150,8 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
-      <CarrierLogos carriers={allCarriers} />
+
+      <CarrierLogos />
     </div>
   );
 };

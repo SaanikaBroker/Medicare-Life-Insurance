@@ -8,12 +8,17 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SocialCta from './components/SocialCta';
 import AdminPage from './pages/AdminPage';
 import { DataProvider } from './hooks/useAdminData';
 import { CalendarCheck, MessageSquare } from 'lucide-react';
 import BookAppointmentPage from './pages/BookAppointmentPage';
+import BookMedicarePage from './pages/BookMedicarePage';
+import BookChoicePage from './pages/BookChoicePage';
 import { useAdminData } from './hooks/useAdminData';
 import ReviewsPage from './pages/ReviewsPage';
+import AcaMarketplacePage from './pages/AcaMarketplacePage';
+import DentalVisionPage from './pages/DentalVisionPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -33,6 +38,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
       <main className="flex-grow pt-20">
         {children}
       </main>
+      <SocialCta />
       <Footer />
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-tn-primary p-2 flex justify-around items-center md:hidden z-40 border-t border-blue-200">
@@ -63,10 +69,15 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/medicare" element={<MedicarePage />} />
                 <Route path="/life-insurance" element={<LifeInsurancePage />} />
+                <Route path="/aca-marketplace" element={<AcaMarketplacePage />} />
+                <Route path="/dental-vision" element={<DentalVisionPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/reviews" element={<ReviewsPage />} />
-                <Route path="/book-appointment" element={<BookAppointmentPage />} />
+                <Route path="/book-appointment" element={<BookChoicePage />} />
+                <Route path="/book-choice" element={<BookChoicePage />} />
+                <Route path="/book-general" element={<BookAppointmentPage />} />
+                <Route path="/book-medicare" element={<BookMedicarePage />} />
               </Routes>
             </AppLayout>
           } />
