@@ -33,8 +33,15 @@ const AcaMarketplacePage: React.FC = () => {
             Affordable, comprehensive healthcare coverage for individuals, families, and self-employed Texans with low or $0 monthly premiums through federal subsidies.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <Button as="a" href="#/contact" variant="primary">
-              Check Your Subsidy & Rates
+            <Button
+              id="btn-shop-plans"
+              as="a"
+              href="https://www.healthsherpa.com/?_agent_id=saanika-prabhu"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+            >
+              Shop for Plans
             </Button>
             <Button as="a" href="#/book-appointment" variant="outline" className="border-white text-white hover:bg-white hover:text-tn-primary">
               Schedule Free Consultation

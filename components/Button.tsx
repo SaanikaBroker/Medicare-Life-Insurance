@@ -9,7 +9,9 @@ interface ButtonProps {
   className?: string;
   as?: 'button' | 'a';
   href?: string;
-  // FIX: Added 'type' property to allow setting button type (e.g., "submit").
+  target?: string;
+  rel?: string;
+  id?: string;
   type?: 'button' | 'submit' | 'reset';
 }
 
@@ -21,6 +23,9 @@ const Button: React.FC<ButtonProps> = ({
     className = '',
     as = 'button',
     href,
+    target,
+    rel,
+    id,
     type = 'button'
 }) => {
   const baseStyles = 'inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
@@ -40,15 +45,14 @@ const Button: React.FC<ButtonProps> = ({
 
   if (as === 'a') {
     return (
-      <a href={href} className={combinedClassName}>
+      <a id={id} href={href} target={target} rel={rel} className={combinedClassName}>
         {children}
       </a>
     );
   }
 
   return (
-    // FIX: Passed the 'type' prop to the underlying button element.
-    <button onClick={onClick} className={combinedClassName} type={type}>
+    <button id={id} onClick={onClick} className={combinedClassName} type={type}>
       {children}
     </button>
   );
