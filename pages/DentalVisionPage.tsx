@@ -33,8 +33,15 @@ const DentalVisionPage: React.FC = () => {
             Protect your smile and sight with affordable, dedicated dental and vision coverage. Designed for seniors, self-employed individuals, and families across Texas.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <Button as="a" href="#/contact" variant="primary">
-              Get Instant Rates
+            <Button
+              id="btn-shop-dental-vision"
+              as="a"
+              href="https://www.humana.com/aoadv/1964336"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+            >
+              Shop for Plans
             </Button>
             <Button as="a" href="#/book-appointment" variant="outline" className="border-white text-white hover:bg-white hover:text-tn-primary">
               Schedule Free Consultation
