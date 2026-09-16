@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, Shield, HeartHandshake, Phone, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useAdminData } from '../hooks/useAdminData';
+import CarrierLogos from '../components/CarrierLogos';
 
 const BookChoicePage: React.FC = () => {
   const { siteData } = useAdminData();
@@ -83,7 +84,7 @@ const BookChoicePage: React.FC = () => {
                   General Appointment
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                  For Final Expense / Burial protection, Term or Whole Life Insurance, ACA Marketplace health plans, or Dental & Vision coverage.
+                  For Final Expense / Burial protection, Term or Whole Life Insurance, Obamacare / Marketplace Insurance, or Dental & Vision coverage.
                 </p>
 
                 <ul className="space-y-2.5 text-sm text-gray-700 mb-8">
@@ -97,7 +98,7 @@ const BookChoicePage: React.FC = () => {
                   </li>
                   <li className="flex items-center gap-2.5">
                     <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0" />
-                    <span>ACA Marketplace & Dental / Vision</span>
+                    <span>Obamacare / Marketplace Insurance & Dental / Vision</span>
                   </li>
                 </ul>
               </div>
@@ -116,6 +117,9 @@ const BookChoicePage: React.FC = () => {
 
         </div>
       </section>
+
+      {/* Carriers I Work With */}
+      <CarrierLogos mode="all-other" />
     </div>
   );
 };

@@ -1,20 +1,28 @@
 export interface CarrierItem {
   id: string;
   name: string;
-  category: 'medicare' | 'life';
-  // Common filenames to auto-detect if placed in /public or /public/carriers
+  category: 'medicare' | 'marketplace' | 'final-expense';
   possibleFiles: string[];
 }
 
+/**
+ * 1. Medicare Carriers:
+ * - UnitedHealthcare
+ * - Humana
+ * - Aetna
+ * - Wellpoint
+ * - HealthSpring
+ * - Devoted
+ * - WellCare
+ * - Presidio
+ */
 export const medicareCarriersList: CarrierItem[] = [
   {
     id: 'unitedhealthcare',
     name: 'UnitedHealthcare',
     category: 'medicare',
     possibleFiles: [
-      'unitedhealthcare.png', 'unitedhealthcare.jpg', 'unitedhealthcare.svg', 'unitedhealthcare.webp',
-      'uhc.png', 'uhc.jpg', 'uhc.svg', 'uhc.webp',
-      'united-healthcare.png', 'united_healthcare.png', 'united-healthcare.jpg'
+      'unitedhealthcare.svg', 'UHC.png', 'uhc.png', 'unitedhealthcare.png', 'unitedhealthcare.webp'
     ]
   },
   {
@@ -22,16 +30,7 @@ export const medicareCarriersList: CarrierItem[] = [
     name: 'Humana',
     category: 'medicare',
     possibleFiles: [
-      'humana.png', 'humana.jpg', 'humana.svg', 'humana.webp'
-    ]
-  },
-  {
-    id: 'healthspring',
-    name: 'HealthSpring',
-    category: 'medicare',
-    possibleFiles: [
-      'healthspring.png', 'healthspring.jpg', 'healthspring.svg', 'healthspring.webp',
-      'cigna-healthspring.png', 'cigna_healthspring.png', 'cigna.png', 'cigna.svg'
+      'humana.svg', 'humana.png', 'humana.jpg', 'humana.webp'
     ]
   },
   {
@@ -39,23 +38,23 @@ export const medicareCarriersList: CarrierItem[] = [
     name: 'Aetna',
     category: 'medicare',
     possibleFiles: [
-      'aetna.png', 'aetna.jpg', 'aetna.svg', 'aetna.webp'
+      'aetna.svg', 'aetna.png', 'aetna.jpg', 'aetna.webp'
     ]
   },
   {
     id: 'wellpoint',
-    name: 'WellPoint',
+    name: 'Wellpoint',
     category: 'medicare',
     possibleFiles: [
-      'wellpoint.png', 'wellpoint.jpg', 'wellpoint.svg', 'wellpoint.webp'
+      'wellpoint.svg', 'wellpoint-logo.webp', 'wellpoint.png', 'wellpoint.webp'
     ]
   },
   {
-    id: 'wellcare',
-    name: 'WellCare',
+    id: 'healthspring',
+    name: 'HealthSpring',
     category: 'medicare',
     possibleFiles: [
-      'wellcare.png', 'wellcare.jpg', 'wellcare.svg', 'wellcare.webp'
+      'healthspring.svg', 'HealthSpring.jpg', 'healthspring.png', 'healthspring.webp'
     ]
   },
   {
@@ -63,17 +62,15 @@ export const medicareCarriersList: CarrierItem[] = [
     name: 'Devoted',
     category: 'medicare',
     possibleFiles: [
-      'devoted.png', 'devoted.jpg', 'devoted.svg', 'devoted.webp',
-      'devotedhealth.png', 'devoted-health.png'
+      'devoted.svg', 'Devoted.png', 'devoted.png', 'devoted.webp'
     ]
   },
   {
-    id: 'molina',
-    name: 'Molina',
+    id: 'wellcare',
+    name: 'WellCare',
     category: 'medicare',
     possibleFiles: [
-      'molina.png', 'molina.jpg', 'molina.svg', 'molina.webp',
-      'molina-healthcare.png', 'molinahealthcare.png'
+      'wellcare.svg', 'wellcare.png', 'wellcare.webp'
     ]
   },
   {
@@ -81,102 +78,180 @@ export const medicareCarriersList: CarrierItem[] = [
     name: 'Presidio',
     category: 'medicare',
     possibleFiles: [
-      'presidio.png', 'presidio.jpg', 'presidio.svg', 'presidio.webp',
-      'presidio-health.png'
+      'presidio.svg', 'thumbnail-sharing.jpg', 'presidio.png', 'presidio.webp'
     ]
   },
 ];
 
-export const lifeInsuranceCarriersList: CarrierItem[] = [
+/**
+ * 2. Obamacare / Marketplace Carriers:
+ * - Wellpoint
+ * - UnitedHealthcare
+ * - Blue Cross Blue Shield
+ * - Oscar
+ * - Ambetter
+ * - Presidio
+ */
+export const marketplaceCarriersList: CarrierItem[] = [
   {
-    id: 'mutual-of-omaha',
-    name: 'Mutual of Omaha',
-    category: 'life',
+    id: 'wellpoint',
+    name: 'Wellpoint',
+    category: 'marketplace',
     possibleFiles: [
-      'mutual-of-omaha.png', 'mutual_of_omaha.png', 'mutualofomaha.png',
-      'mutual-of-omaha.jpg', 'mutualofomaha.jpg', 'mutual-of-omaha.svg'
+      'wellpoint.svg', 'wellpoint-logo.webp', 'wellpoint.png', 'wellpoint.webp'
     ]
   },
   {
-    id: 'transamerica',
-    name: 'Transamerica',
-    category: 'life',
+    id: 'unitedhealthcare',
+    name: 'UnitedHealthcare',
+    category: 'marketplace',
     possibleFiles: [
-      'transamerica.png', 'transamerica.jpg', 'transamerica.svg', 'transamerica.webp'
+      'unitedhealthcare.svg', 'UHC.png', 'uhc.png', 'unitedhealthcare.png', 'unitedhealthcare.webp'
     ]
   },
   {
-    id: 'corebridge-aig',
-    name: 'CoreBridge / AIG',
-    category: 'life',
+    id: 'bcbs',
+    name: 'Blue Cross Blue Shield',
+    category: 'marketplace',
     possibleFiles: [
-      'corebridge.png', 'corebridge.jpg', 'corebridge.svg',
-      'corebridge-aig.png', 'corebridge_aig.png', 'aig.png', 'aig.svg'
+      'bcbs.svg', 'BCBS.webp', 'bcbs.png', 'bcbs.webp'
     ]
   },
   {
-    id: 'gerber',
-    name: 'Gerber',
-    category: 'life',
+    id: 'oscar',
+    name: 'Oscar',
+    category: 'marketplace',
     possibleFiles: [
-      'gerber.png', 'gerber.jpg', 'gerber.svg',
-      'gerber-life.png', 'gerberlife.png'
+      'oscar.svg', 'Oscar_Health_logo.svg', 'oscar.png', 'oscar.webp'
     ]
   },
   {
-    id: 'royal-neighbors',
-    name: 'Royal Neighbors',
-    category: 'life',
+    id: 'ambetter',
+    name: 'Ambetter',
+    category: 'marketplace',
     possibleFiles: [
-      'royal-neighbors.png', 'royal_neighbors.png', 'royalneighbors.png',
-      'royal-neighbors.jpg', 'royal-neighbors.svg'
+      'ambetter.svg', 'Ambetter-Logo.png', 'ambetter.png', 'ambetter.webp'
     ]
   },
   {
-    id: 'trinity',
-    name: 'Trinity',
-    category: 'life',
+    id: 'presidio',
+    name: 'Presidio',
+    category: 'marketplace',
     possibleFiles: [
-      'trinity.png', 'trinity.jpg', 'trinity.svg',
-      'trinity-life.png', 'trinitylife.png'
+      'presidio.svg', 'thumbnail-sharing.jpg', 'presidio.png', 'presidio.webp'
     ]
-  },
+  }
+];
+
+/**
+ * 3. Final Expense Carriers:
+ * - CVS/Aetna
+ * - American Amicable
+ * - Corebridge
+ * - Gerber
+ * - Guarantee Trust Life (GTL)
+ * - Mutual of Omaha / United of Omaha
+ * - Royal Neighbors
+ * - Transamerica
+ * - CICA
+ * - Foresters
+ * - Trinity
+ * (Ignore SBLI)
+ */
+export const finalExpenseCarriersList: CarrierItem[] = [
   {
-    id: 'cica',
-    name: 'CICA',
-    category: 'life',
+    id: 'cvs-aetna',
+    name: 'CVS/Aetna',
+    category: 'final-expense',
     possibleFiles: [
-      'cica.png', 'cica.jpg', 'cica.svg', 'cica-life.png'
+      'cvs-aetna.svg', 'cvs-aetna.png', 'aetna.svg'
     ]
   },
   {
     id: 'american-amicable',
     name: 'American Amicable',
-    category: 'life',
+    category: 'final-expense',
     possibleFiles: [
-      'american-amicable.png', 'american_amicable.png', 'americanamicable.png',
-      'american-amicable.jpg', 'american-amicable.svg'
+      'american-amicable.svg', 'AMAM.webp', 'american-amicable.png'
     ]
   },
   {
-    id: 'lifeshield',
-    name: 'LifeShield',
-    category: 'life',
+    id: 'corebridge',
+    name: 'Corebridge',
+    category: 'final-expense',
     possibleFiles: [
-      'lifeshield.png', 'lifeshield.jpg', 'lifeshield.svg',
-      'life-shield.png', 'lifeshield-national.png'
+      'corebridge.svg', 'Corebridge-Financial-Full-Color.jpg', 'corebridge.png'
+    ]
+  },
+  {
+    id: 'gerber',
+    name: 'Gerber',
+    category: 'final-expense',
+    possibleFiles: [
+      'gerber.svg', '437-4370612_gerber-logo-gerber-baby-png-transparent-png.png', 'gerber.png'
+    ]
+  },
+  {
+    id: 'gtl',
+    name: 'Guarantee Trust Life (GTL)',
+    category: 'final-expense',
+    possibleFiles: [
+      'gtl.svg', 'GTL.png', 'gtl.png'
+    ]
+  },
+  {
+    id: 'mutual-of-omaha',
+    name: 'Mutual of Omaha / United of Omaha',
+    category: 'final-expense',
+    possibleFiles: [
+      'mutual-of-omaha.svg', 'mutual-of-omaha.png'
+    ]
+  },
+  {
+    id: 'royal-neighbors',
+    name: 'Royal Neighbors',
+    category: 'final-expense',
+    possibleFiles: [
+      'royal-neighbors.svg', 'RN Logo.png', 'royal-neighbors.png'
+    ]
+  },
+  {
+    id: 'transamerica',
+    name: 'Transamerica',
+    category: 'final-expense',
+    possibleFiles: [
+      'transamerica.svg', 'transamerica-logo-vector-11573939509t4wnlvkzk8.png', 'transamerica.png'
+    ]
+  },
+  {
+    id: 'cica',
+    name: 'CICA',
+    category: 'final-expense',
+    possibleFiles: [
+      'cica.svg', 'CICA.webp', 'cica.png'
     ]
   },
   {
     id: 'foresters',
     name: 'Foresters',
-    category: 'life',
+    category: 'final-expense',
     possibleFiles: [
-      'foresters.png', 'foresters.jpg', 'foresters.svg',
-      'foresters-financial.png', 'forestersfinancial.png'
+      'foresters.svg', 'Foresters_NEW.jpg', 'foresters.png'
+    ]
+  },
+  {
+    id: 'trinity',
+    name: 'Trinity',
+    category: 'final-expense',
+    possibleFiles: [
+      'trinity.svg', 'TRINITY.webp', 'tRINITY.png', 'trinity.png'
     ]
   },
 ];
+
+// Backwards-compatible alias for existing imports
+export const lifeInsuranceCarriersList = finalExpenseCarriersList;
+
 
 // Backwards-compatible mock objects if required anywhere
 export interface Carrier {

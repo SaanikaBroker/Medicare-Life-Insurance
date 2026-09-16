@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+    <g transform="translate(10, 8)">
+      <polygon points="12,4 0,38 10,38 15,22 25,22 30,38 40,38 28,4" fill="#0B2341"/>
+      <polygon points="20,8 32,38 42,38 28,4" fill="#1E4B7A"/>
+    </g>
+    <text x="56" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#0B2341" letter-spacing="1">AMERICAN</text>
+    <text x="56" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#0B2341" letter-spacing="1">AMICABLE GROUP</text>
+  </svg>

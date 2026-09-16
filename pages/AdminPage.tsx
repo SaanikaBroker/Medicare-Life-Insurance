@@ -25,7 +25,7 @@ const AdminPage: React.FC = () => {
         return;
       }
       const reader = new FileReader();
-      reader.onload = (event) => {
+      reader.onload = async (event) => {
         const dataUrl = event.target?.result as string;
         if (dataUrl) {
           setCustomPhoto(dataUrl);
@@ -33,6 +33,15 @@ const AdminPage: React.FC = () => {
             localStorage.setItem('saanika_custom_photo', dataUrl);
           } catch (err) {
             console.warn(err);
+          }
+          window.dispatchEvent(new Event('saanika_photo_updated'));
+          try {
+            await fetch('/api/save-photo', {
+              method: 'POST',
+              body: file,
+            });
+          } catch (serverErr) {
+            console.warn('Could not persist to server disk', serverErr);
           }
           setPhotoMessage('Profile photo updated successfully!');
           setTimeout(() => setPhotoMessage(null), 3000);
@@ -49,6 +58,7 @@ const AdminPage: React.FC = () => {
     } catch (err) {
       console.warn(err);
     }
+    window.dispatchEvent(new Event('saanika_photo_updated'));
     setPhotoMessage('Photo reset to default.');
     setTimeout(() => setPhotoMessage(null), 3000);
   };

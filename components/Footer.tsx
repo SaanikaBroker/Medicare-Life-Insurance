@@ -3,7 +3,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Facebook, Instagram } from 'lucide-react';
 import { useAdminData } from '../hooks/useAdminData';
-import Logo from './Logo';
 
 const Footer: React.FC = () => {
     const { siteData } = useAdminData();
@@ -18,7 +17,6 @@ const Footer: React.FC = () => {
     <footer className="bg-tn-primary text-white pt-12 pb-8 px-4 md:px-8">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
         <div>
-          <Logo className="h-12 w-auto mb-4 mx-auto md:mx-0" />
           <p className="text-gray-300">Your trusted Medicare & Life Insurance broker serving San Antonio and all of Texas.</p>
         </div>
         <div>
@@ -26,7 +24,7 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             <li><NavLink to="/medicare" className="hover:text-tn-accent">Medicare</NavLink></li>
             <li><NavLink to="/life-insurance" className="hover:text-tn-accent">Life Insurance</NavLink></li>
-            <li><NavLink to="/aca-marketplace" className="hover:text-tn-accent">ACA Marketplace</NavLink></li>
+            <li><NavLink to="/aca-marketplace" className="hover:text-tn-accent">Obamacare / Marketplace Insurance</NavLink></li>
             <li><NavLink to="/dental-vision" className="hover:text-tn-accent">Dental & Vision Plans</NavLink></li>
             <li><NavLink to="/about" className="hover:text-tn-accent">About Saanika</NavLink></li>
             <li><NavLink to="/reviews" className="hover:text-tn-accent">Reviews</NavLink></li>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" fill="none">
+    <g transform="translate(10, 14)">
+      <path d="M12 0 C6 0 0 6 0 12 C0 20 12 28 12 28 C12 28 24 20 24 12 C24 6 18 0 12 0 Z" fill="#CC0000"/>
+    </g>
+    <text x="44" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#CC0000">CVS<tspan fill="#333333">Health</tspan></text>
+    <text x="145" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#7D3F98">| aetna</text>
+  </svg>

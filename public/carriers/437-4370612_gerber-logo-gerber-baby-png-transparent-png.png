@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+    <g transform="translate(12, 8)">
+      <circle cx="22" cy="22" r="21" stroke="#002D72" stroke-width="2.5" fill="#F4F8FC"/>
+      <circle cx="22" cy="20" r="13" fill="#002D72" opacity="0.15"/>
+      <circle cx="17" cy="18" r="2" fill="#002D72"/>
+      <circle cx="27" cy="18" r="2" fill="#002D72"/>
+      <path d="M18 25 Q22 28 26 25" stroke="#002D72" stroke-width="2" fill="none"/>
+    </g>
+    <text x="64" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#002D72">Gerber<tspan font-size="14" dy="-10">®</tspan></text>
+  </svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" fill="none">
+    <g transform="translate(10, 8)">
+      <path d="M12 36 C4 36 2 24 10 14 C16 6 28 2 28 12 C28 24 16 38 6 42" stroke="#822980" stroke-width="6" stroke-linecap="round" fill="none"/>
+    </g>
+    <text x="50" y="39" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="700" fill="#1B1464" letter-spacing="-0.3">HealthSpring</text>
+  </svg>

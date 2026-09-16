@@ -1,6 +1,6 @@
 {
   "name": "TrueNorth Medicare & Life Insurance",
-  "description": "Licensed insurance broker in San Antonio helping Texans with Medicare, Life Insurance, ACA Marketplace, and Dental & Vision coverage.",
+  "description": "Licensed insurance broker in San Antonio helping Texans with Medicare, Life Insurance, Obamacare / Marketplace Insurance, and Dental & Vision coverage.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

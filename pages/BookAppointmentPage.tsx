@@ -35,7 +35,7 @@ const BookAppointmentPage: React.FC = () => {
             Book a General Appointment
           </h1>
           <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
-            Schedule a dedicated time to discuss Final Expense, Life & Burial Insurance, ACA Marketplace, or Dental & Vision plans.
+            Schedule a dedicated time to discuss Final Expense, Life & Burial Insurance, Obamacare / Marketplace Insurance, or Dental & Vision plans.
           </p>
         </div>
       </section>

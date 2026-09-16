@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 60" fill="none">
+    <g transform="translate(12, 12)">
+      <path d="M12 28 C5 28 0 23 0 16 C0 9 5 4 12 4 L14 4 L14 28 Z" fill="#00A3E0"/>
+      <path d="M14 4 L22 4 C29 4 34 9 34 16 C34 23 29 28 22 28 L14 28 Z" fill="#5C068C"/>
+      <path d="M12 4 C12 0 18 -4 24 -4 C30 -4 34 0 34 4 Z" fill="#FF5722"/>
+    </g>
+    <text x="56" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="600" fill="#1E2022" letter-spacing="-0.3">Devoted<tspan font-weight="300">Health</tspan></text>
+  </svg>

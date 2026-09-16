@@ -13,35 +13,12 @@ import {
 } from 'lucide-react';
 import { useAdminData } from '../hooks/useAdminData';
 import { medicareCarriersList, lifeInsuranceCarriersList } from '../data/carrierData';
-import saanikaProfileImage from '../src/assets/images/saanika_about_portrait_1789413419482.jpg';
 import DualBookingButtons from '../components/DualBookingButtons';
-
-const candidateImages = [
-  '/IMG_6289.jpeg',
-  '/IMG_6289.jpg',
-  '/saanika.jpeg',
-  '/saanika.jpg',
-  saanikaProfileImage,
-];
+import CarrierLogos from '../components/CarrierLogos';
+import BrokerPhoto from '../components/BrokerPhoto';
 
 const AboutPage: React.FC = () => {
   const { siteData } = useAdminData();
-  const [candidateIndex, setCandidateIndex] = useState(0);
-  const [customPhoto] = useState<string | null>(() => {
-    try {
-      return localStorage.getItem('saanika_custom_photo') || null;
-    } catch {
-      return null;
-    }
-  });
-
-  const handleImageError = () => {
-    if (!customPhoto && candidateIndex < candidateImages.length - 1) {
-      setCandidateIndex(prev => prev + 1);
-    }
-  };
-  
-  const currentPhotoSrc = customPhoto || candidateImages[candidateIndex];
 
   return (
     <div className="bg-tn-gray">
@@ -66,16 +43,7 @@ const AboutPage: React.FC = () => {
               
               {/* Profile Photo Column */}
               <div className="md:w-5/12 mb-6 md:mb-0 flex-shrink-0">
-                <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
-                  <img 
-                    id="broker-profile-image"
-                    src={currentPhotoSrc} 
-                    alt="Saanika, licensed insurance broker in San Antonio" 
-                    className="w-full h-auto object-contain block"
-                    onError={handleImageError}
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+                <BrokerPhoto mode="portrait" />
 
                 <div className="mt-4 p-3 bg-slate-50 rounded-lg border border-slate-100 text-center">
                   <p className="font-semibold text-tn-primary text-sm">Saanika</p>
@@ -126,7 +94,7 @@ const AboutPage: React.FC = () => {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-1">
                           <h4 className="text-xs font-bold text-tn-primary group-hover:text-tn-primary transition-colors leading-snug">
-                            Life, ACA & Pre-Need
+                            Life, Obamacare / Marketplace Insurance & Pre-Need
                           </h4>
                           <ArrowRight size={14} className="text-tn-primary group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
                         </div>
@@ -144,13 +112,13 @@ const AboutPage: React.FC = () => {
                 <h2 className="text-2xl sm:text-3xl font-semibold text-tn-primary mb-4">Hi, I’m Saanika.</h2>
                 <div className="space-y-4 text-base text-gray-700 leading-relaxed font-normal">
                   <p>
-                    As a <strong>licensed insurance broker based in San Antonio</strong>, my focus is helping individuals, seniors, and families make sense of <strong>Medicare</strong>, <strong>Life Insurance</strong>, <strong>ACA Marketplace health plans</strong>, and <strong>Dental & Vision coverage</strong>.
+                    As a <strong>licensed insurance broker based in San Antonio</strong>, my focus is helping individuals, seniors, and families make sense of <strong>Medicare</strong>, <strong>Life Insurance</strong>, <strong>Obamacare / Marketplace Insurance</strong>, and <strong>Dental & Vision coverage</strong>.
                   </p>
                   <p>
                     For anyone <strong>approaching 65</strong>, educational <strong>Medicare 101 sessions</strong> are offered in person, by Zoom, or over the phone to explain enrollment timelines and plan differences clearly before any decisions are made.
                   </p>
                   <p>
-                    With <strong>ACA Marketplace coverage</strong>, household income is evaluated to help you qualify for <strong>subsidies that lower your monthly premium</strong>, followed by a side-by-side comparison of plans that include your preferred doctors and prescriptions.
+                    With <strong>Obamacare / Marketplace Insurance</strong>, household income is evaluated to help you qualify for <strong>subsidies that lower your monthly premium</strong>, followed by a side-by-side comparison of plans that include your preferred doctors and prescriptions.
                   </p>
                   <p>
                     When planning ahead with <strong>Life & Burial Insurance</strong> and <strong>funeral home planning</strong>, rates and plans are <strong>compared across 40 of the most trusted insurance carriers</strong> to find the right protection for your family and budget.
@@ -233,16 +201,16 @@ const AboutPage: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-tn-primary">
-                    Medicare & ACA Health Plans
+                    Medicare & Obamacare / Marketplace Insurance
                   </h3>
                   <span className="text-xs text-gray-500 font-medium">
-                    Advantage, Supplements, Part D & ACA Marketplace
+                    Advantage, Supplements, Part D & Obamacare / Marketplace Insurance
                   </span>
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-gray-600 mb-4 leading-relaxed">
-                Directly contracted with leading major health carriers across Texas to help you verify doctor networks, compare maximum out-of-pocket costs, check prescription formularies, and qualify for ACA subsidies:
+                Directly contracted with leading major health carriers across Texas to help you verify doctor networks, compare maximum out-of-pocket costs, check prescription formularies, and qualify for Obamacare / Marketplace subsidies:
               </p>
 
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -309,6 +277,9 @@ const AboutPage: React.FC = () => {
 
         </div>
       </section>
+
+      {/* Carriers I Work With */}
+      <CarrierLogos mode="all-other" />
 
       {/* Final CTA */}
       <section className="py-14 bg-white border-t border-gray-100">

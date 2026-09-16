@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+    <g transform="translate(10, 4)">
+      <!-- UHC 3-bars shield mark -->
+      <path d="M12 4 L28 4 C28 22 24 38 12 48 C0 38 -4 22 -4 4 Z" fill="none"/>
+      <path d="M4 14 L12 8 L12 36 C8 32 6 24 4 14 Z" fill="#002677"/>
+      <path d="M15 6 L23 2 L23 39 C19 36 16 30 15 22 Z" fill="#4B6B94"/>
+      <path d="M26 1 L34 -3 L34 40 C30 38 27 34 26 28 Z" fill="#8FA9C4"/>
+    </g>
+    <text x="56" y="37" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#002677" letter-spacing="-0.3">UnitedHealthcare</text>
+  </svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 60" fill="none">
+    <g transform="translate(10, 6)">
+      <!-- Green pyramid with lines -->
+      <polygon points="22,2 42,44 2,44" fill="#006837"/>
+      <line x1="22" y1="12" x2="36" y2="40" stroke="#FFFFFF" stroke-width="1.5"/>
+      <line x1="22" y1="18" x2="33" y2="40" stroke="#FFFFFF" stroke-width="1.5"/>
+      <line x1="22" y1="24" x2="30" y2="40" stroke="#FFFFFF" stroke-width="1.5"/>
+      <line x1="22" y1="30" x2="27" y2="40" stroke="#FFFFFF" stroke-width="1.5"/>
+    </g>
+    <text x="60" y="27" font-family="serif" font-size="18" font-weight="700" fill="#006837">Trinity Life</text>
+    <text x="60" y="44" font-family="serif" font-size="16" font-weight="700" fill="#006837">Insurance Company</text>
+  </svg>

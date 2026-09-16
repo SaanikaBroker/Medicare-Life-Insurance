@@ -76,7 +76,7 @@ const ContactPage: React.FC = () => {
                         General Consultation
                       </h3>
                       <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
-                        Final Expense / Burial protection, Term & Whole Life, ACA Marketplace individual & family plans, or Dental & Vision.
+                        Final Expense / Burial protection, Term & Whole Life, Obamacare / Marketplace Insurance individual & family plans, or Dental & Vision.
                       </p>
                     </div>
                   </div>

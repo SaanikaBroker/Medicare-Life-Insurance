@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" fill="none">
+    <text x="14" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="700" fill="#00205B" letter-spacing="-0.5">Wellpoint</text>
+    <!-- 3-petal flower -->
+    <g transform="translate(155, 6) scale(0.7)">
+      <path d="M18 30 C12 20 18 10 28 14 C38 18 34 28 18 30 Z" fill="#E40046"/>
+      <path d="M30 18 C35 8 48 8 50 20 C52 32 38 32 30 18 Z" fill="#0077C8"/>
+      <path d="M42 30 C58 28 54 18 64 14 C74 10 80 20 74 30 Z" fill="#00A3E0"/>
+    </g>
+  </svg>

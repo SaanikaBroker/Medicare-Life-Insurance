@@ -51,8 +51,8 @@ const HomePage: React.FC = () => {
       icon: <HeartHandshake className="text-red-400" size={20} />,
     },
     {
-      title: 'ACA Marketplace',
-      shortTitle: 'ACA Marketplace',
+      title: 'Obamacare / Marketplace Insurance',
+      shortTitle: 'Obamacare / Marketplace Insurance',
       category: 'Under-65 Health Plans',
       description: 'Affordable Care Act individual and family health coverage with maximized subsidies and essential benefits.',
       path: '/aca-marketplace',
@@ -96,7 +96,7 @@ const HomePage: React.FC = () => {
             </h1>
             
             <p className="text-base sm:text-lg text-slate-100/90 mb-8 max-w-2xl mx-auto font-normal leading-relaxed">
-              Local, independent help with Medicare, Life Insurance, ACA Marketplace, and Dental & Vision.
+              Local, independent help with Medicare, Life Insurance, Obamacare / Marketplace Insurance, and Dental & Vision.
             </p>
             
             <div className="flex justify-center">

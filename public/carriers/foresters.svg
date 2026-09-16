@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+    <text x="12" y="39" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#581E48" letter-spacing="-0.3">Foresters</text>
+    <g transform="translate(150, 10)">
+      <path d="M16 34 C12 24 6 16 0 12 C10 16 14 26 16 34 Z" fill="#48C2B8"/>
+      <path d="M16 34 C18 20 22 10 28 4 C24 16 20 26 16 34 Z" fill="#48C2B8"/>
+      <path d="M16 34 C24 26 30 20 38 18 C28 24 22 28 16 34 Z" fill="#48C2B8"/>
+    </g>
+  </svg>

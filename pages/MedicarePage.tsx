@@ -132,7 +132,7 @@ const MedicarePage: React.FC = () => {
           </aside>
         </div>
       </div>
-      <CarrierLogos showMedicareOnly={true} title="Contracted Medicare Carriers" />
+      <CarrierLogos mode="medicare" />
     </div>
   );
 };

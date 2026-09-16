@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import acaImage from '../src/assets/images/tile_aca_full_family_1789412990092.jpg';
 import DualBookingButtons from '../components/DualBookingButtons';
+import CarrierLogos from '../components/CarrierLogos';
 
 const AcaMarketplacePage: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ const AcaMarketplacePage: React.FC = () => {
             Under-65 Individual & Family Coverage
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            ACA Marketplace Health Insurance
+            Obamacare / Marketplace Insurance
           </h1>
           <p className="text-xl text-gray-200 mt-2 max-w-3xl mx-auto">
             Affordable, comprehensive healthcare coverage for individuals, families, and self-employed Texans with low or $0 monthly premiums through federal subsidies.
@@ -51,10 +52,10 @@ const AcaMarketplacePage: React.FC = () => {
             {/* Overview */}
             <div>
               <h2 className="text-3xl font-bold text-tn-primary mb-4">
-                What is the ACA (Obamacare) Marketplace?
+                What is Obamacare / Marketplace Insurance?
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                The Affordable Care Act (ACA) Marketplace is the official federal health insurance exchange that allows individuals and families who do not have coverage through an employer or Medicare to enroll in comprehensive, qualified health plans.
+                Obamacare / Marketplace Insurance (established by the Affordable Care Act) is the official federal health insurance exchange that allows individuals and families who do not have coverage through an employer or Medicare to enroll in comprehensive, qualified health plans.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Plans on the Marketplace are legally required to cover all pre-existing conditions and provide 10 essential health benefit categories. Plus, depending on your household income and size, you may qualify for <strong>Advanced Premium Tax Credits (APTC)</strong> that dramatically lower your monthly premium—often down to $0/month.
@@ -188,6 +189,9 @@ const AcaMarketplacePage: React.FC = () => {
           <DualBookingButtons variant="light" />
         </div>
       </div>
+
+      {/* Obamacare / Marketplace Carriers */}
+      <CarrierLogos mode="marketplace" />
     </div>
   );
 };

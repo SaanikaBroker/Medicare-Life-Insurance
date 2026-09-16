@@ -131,7 +131,7 @@ const LifeInsurancePage: React.FC = () => {
 
         </div>
       </section>
-      <CarrierLogos showLifeOnly={true} title="Contracted Life Insurance Carriers" />
+      <CarrierLogos mode="final-expense" />
     </div>
   );
 };

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import dentalVisionImage from '../src/assets/images/tile_dental_candid_1789413000735.jpg';
 import DualBookingButtons from '../components/DualBookingButtons';
+import CarrierLogos from '../components/CarrierLogos';
 
 const DentalVisionPage: React.FC = () => {
   return (
@@ -55,7 +56,7 @@ const DentalVisionPage: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Did You Know?</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    <strong>Original Medicare (Parts A & B) does NOT cover routine dental care</strong> (like cleanings, fillings, dentures, crowns, and implants) or routine eye exams and eyeglasses. Many ACA plans also exclude adult dental and vision. A standalone dental & vision policy bridges this essential gap.
+                    <strong>Original Medicare (Parts A & B) does NOT cover routine dental care</strong> (like cleanings, fillings, dentures, crowns, and implants) or routine eye exams and eyeglasses. Many Obamacare / Marketplace Insurance plans also exclude adult dental and vision. A standalone dental & vision policy bridges this essential gap.
                   </p>
                 </div>
               </div>
@@ -167,7 +168,7 @@ const DentalVisionPage: React.FC = () => {
                 <p>Most of our dental plans utilize open PPO networks (like Ameritas, Delta Dental, Humana, or Guardian). You can visit any licensed dentist, though you save the most when choosing an in-network provider.</p>
               </AccordionItem>
               <AccordionItem icon={<FileCheck size={28} />} title="Can I enroll at any time of the year?">
-                <p>Yes! Unlike Medicare or ACA Marketplace, standalone dental and vision plans have <strong>year-round enrollment</strong>. You can enroll today and coverage can begin on the first of next month.</p>
+                <p>Yes! Unlike Medicare or Obamacare / Marketplace Insurance, standalone dental and vision plans have <strong>year-round enrollment</strong>. You can enroll today and coverage can begin on the first of next month.</p>
               </AccordionItem>
             </div>
 
@@ -199,7 +200,7 @@ const DentalVisionPage: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="text-tn-accent flex-shrink-0" size={16} />
-                  <span>Seamless pairing with Medicare & ACA</span>
+                  <span>Seamless pairing with Medicare & Obamacare / Marketplace Insurance</span>
                 </li>
               </ul>
 
@@ -220,6 +221,9 @@ const DentalVisionPage: React.FC = () => {
           <DualBookingButtons variant="light" />
         </div>
       </div>
+
+      {/* Carriers I Work With */}
+      <CarrierLogos mode="all-other" />
     </div>
   );
 };

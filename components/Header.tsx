@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, CalendarCheck, ChevronDown } from 'lucide-react';
 import { useAdminData } from '../hooks/useAdminData';
-import Logo from './Logo';
 
 interface NavItem {
   name: string;
@@ -128,7 +127,7 @@ const Header: React.FC = () => {
       items: [
         { name: 'Medicare', path: '/medicare' },
         { name: 'Life Insurance', path: '/life-insurance' },
-        { name: 'ACA Marketplace', path: '/aca-marketplace' },
+        { name: 'Obamacare / Marketplace Insurance', path: '/aca-marketplace' },
         { name: 'Dental & Vision', path: '/dental-vision' },
       ],
     },
@@ -158,12 +157,7 @@ const Header: React.FC = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0">
-            <NavLink to="/">
-              <Logo className="h-14 w-auto" />
-            </NavLink>
-          </div>
+        <div className="flex items-center justify-end md:justify-center h-20">
           <nav className="hidden md:flex md:items-center md:space-x-8">
             {navLinks.map((link) => (
               link.items ? (
@@ -189,7 +183,11 @@ const Header: React.FC = () => {
           </nav>
           
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-tn-primary">
+            <button 
+              onClick={() => setIsOpen(!isOpen)} 
+              className="text-tn-primary p-1 focus:outline-none"
+              aria-label="Toggle Navigation Menu"
+            >
               {isOpen ? <X size={32} /> : <Menu size={32} />}
             </button>
           </div>

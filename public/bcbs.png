@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 60" fill="none">
+    <g transform="translate(10, 8)">
+      <!-- Cross -->
+      <rect x="6" y="2" width="20" height="20" rx="3" fill="#0072CE"/>
+      <circle cx="16" cy="9" r="2.5" fill="#FFFFFF"/>
+      <path d="M12 18 L16 13 L20 18" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <!-- Shield -->
+      <path d="M34 2 L48 2 C48 14 44 20 41 23 C38 20 34 14 34 2 Z" fill="#0072CE"/>
+      <path d="M41 5 L41 18" stroke="#FFFFFF" stroke-width="1.5"/>
+    </g>
+    <text x="68" y="27" font-family="serif" font-size="17" font-weight="700" fill="#1C2833">BlueCross</text>
+    <text x="68" y="45" font-family="serif" font-size="17" font-weight="700" fill="#1C2833">BlueShield</text>
+  </svg>
