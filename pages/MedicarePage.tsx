@@ -23,6 +23,26 @@ const MedicarePage: React.FC = () => {
           <p className="text-base sm:text-lg text-gray-600 mt-3 leading-relaxed">
             We make Medicare simple, so you can choose the plan that is right for your doctors, prescriptions, and budget.
           </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <Button
+              id="btn-shop-medicare"
+              as="a"
+              href="https://www.sunfirematrix.com/app/consumer/ember/?sfpath=int&sfagid=21098209#/"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+            >
+              Shop for Plans
+            </Button>
+            <Button
+              as="a"
+              href="#/book-medicare"
+              variant="outline"
+              className="border-tn-primary text-tn-primary hover:bg-tn-primary hover:text-white"
+            >
+              Schedule Medicare Review
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -119,13 +139,22 @@ const MedicarePage: React.FC = () => {
                   <span><strong className="text-white">Zero Cost to You:</strong> Our consultations and guidance are 100% free.</span>
                 </li>
               </ul>
-              <div className="mt-6">
+              <div className="mt-6 space-y-3">
+                <a
+                  id="btn-shop-medicare-sidebar"
+                  href="https://www.sunfirematrix.com/app/consumer/ember/?sfpath=int&sfagid=21098209#/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center px-4 py-3 rounded-lg font-semibold text-sm bg-tn-accent text-white hover:bg-red-800 shadow-md transition-all text-center leading-snug"
+                >
+                  Shop for Plans
+                </a>
                 <a
                   id="btn-medicare-page-cta"
                   href="#/book-medicare"
-                  className="w-full inline-flex items-center justify-center px-4 py-3 rounded-lg font-semibold text-sm bg-tn-accent text-white hover:bg-red-800 shadow-md transition-all text-center leading-snug"
+                  className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg font-medium text-xs bg-white/10 text-white hover:bg-white/20 transition-all text-center leading-snug"
                 >
-                  Schedule Your Medicare 101 or Annual Review
+                  Schedule Free Medicare 101 Review
                 </a>
               </div>
             </div>
