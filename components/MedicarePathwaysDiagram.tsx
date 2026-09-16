@@ -241,7 +241,7 @@ export const MedicarePathwaysDiagram: React.FC = () => {
               </div>
               <a
                 id="btn-advantage-shop-path"
-                href="https://www.sunfirematrix.com/app/consumer/ember/?sfpath=int&sfagid=21098209#/"
+                href="https://www.sunfirematrix.com/app/blazesync/int/21098209/2026/#/blazesync/sync/contact"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs transition-colors"

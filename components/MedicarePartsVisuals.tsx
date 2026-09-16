@@ -308,7 +308,7 @@ export const MedicarePartsVisuals: React.FC = () => {
           </p>
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <a
-              href="https://www.sunfirematrix.com/app/consumer/ember/?sfpath=int&sfagid=21098209#/"
+              href="https://www.sunfirematrix.com/app/blazesync/int/21098209/2026/#/blazesync/sync/contact"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-tn-accent hover:bg-red-800 text-white text-xs font-semibold shadow-xs transition-colors"

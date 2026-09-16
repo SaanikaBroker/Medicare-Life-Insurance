@@ -5,6 +5,7 @@ import { HeartHandshake, ShieldCheck, TrendingUp, Infinity, Shield, Baby, Landma
 import { useAdminData } from '../hooks/useAdminData';
 import CarrierLogos from '../components/CarrierLogos';
 import { lifeInsuranceCarriers } from '../data/carrierData';
+import LifeInsuranceVideoReel from '../components/LifeInsuranceVideoReel';
 
 const LifeInsurancePage: React.FC = () => {
     const { siteData } = useAdminData();
@@ -84,6 +85,9 @@ const LifeInsurancePage: React.FC = () => {
               </div>
             ))}
           </div>
+
+          {/* Educational Video Guides: Term Vs Whole Life & $9.99 Life Insurance Alert */}
+          <LifeInsuranceVideoReel />
           
           {/* Highlighted Whole Life Section */}
           <div className="bg-slate-50 border border-blue-100 p-6 sm:p-8 rounded-xl max-w-4xl mx-auto mb-14">

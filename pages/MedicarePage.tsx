@@ -25,6 +25,7 @@ import medicareHeroImage from '../src/assets/images/tile_medicare_candid_1789412
 import MedicarePathwaysDiagram from '../components/MedicarePathwaysDiagram';
 import MedicarePartsVisuals from '../components/MedicarePartsVisuals';
 import MedicareTimelineDiagram from '../components/MedicareTimelineDiagram';
+import MedicareVideoReel from '../components/MedicareVideoReel';
 import DualBookingButtons from '../components/DualBookingButtons';
 
 const MedicarePage: React.FC = () => {
@@ -50,7 +51,7 @@ const MedicarePage: React.FC = () => {
             <Button
               id="btn-shop-medicare"
               as="a"
-              href="https://www.sunfirematrix.com/app/consumer/ember/?sfpath=int&sfagid=21098209#/"
+              href="https://www.sunfirematrix.com/app/blazesync/int/21098209/2026/#/blazesync/sync/contact"
               target="_blank"
               rel="noopener noreferrer"
               variant="primary"
@@ -85,6 +86,9 @@ const MedicarePage: React.FC = () => {
                 Medicare is the federal health insurance program for individuals age 65 or older, younger adults with qualifying disabilities, and individuals with ESRD. Because Original Medicare (Parts A & B) leaves an <strong>uncapped 20% coinsurance gap</strong> with no yearly limit on what you pay, virtually all beneficiaries choose between a <strong>Medicare Supplement (Medigap)</strong> or an all-in-one <strong>Medicare Advantage Plan (Part C)</strong>.
               </p>
             </div>
+
+            {/* VIDEO REEL: New to Medicare? Watch this video */}
+            <MedicareVideoReel />
 
             {/* DIAGRAM 1: The Two Pathways of Medicare */}
             <MedicarePathwaysDiagram />
@@ -293,7 +297,7 @@ const MedicarePage: React.FC = () => {
               <div className="pt-2 space-y-3">
                 <a
                   id="btn-shop-medicare-sidebar"
-                  href="https://www.sunfirematrix.com/app/consumer/ember/?sfpath=int&sfagid=21098209#/"
+                  href="https://www.sunfirematrix.com/app/blazesync/int/21098209/2026/#/blazesync/sync/contact"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center px-4 py-3 rounded-xl font-bold text-sm bg-tn-accent text-white hover:bg-red-800 shadow-md transition-all text-center leading-snug cursor-pointer"
